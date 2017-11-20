@@ -109,7 +109,7 @@
     <Resource Include="Images\coffee5.jpg" />
     <Resource Include="Images\coffee6.jpg" />
     <Resource Include="Images\coffee7.jpg" />
-    <Resource Include="Images\coffee8.jpg" />
+    <Resource Include="Images\coffee0.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

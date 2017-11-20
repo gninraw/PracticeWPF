@@ -14,13 +14,15 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ListView>
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
+        
+        <ListView x:Name="MyListView" SelectionChanged="MyListView_SelectionChanged" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding CoffeeName}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>            
         </ListView>
+        
         <Grid Grid.Column="1" Background="#FFBEC6F5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="150*"/>
@@ -42,14 +44,15 @@
             <Label Content="Price" Grid.Row="4" Margin="11,0,0,0" FontWeight="Bold"/>
             <Label Content="Stock Amount" Grid.Row="5" Margin="11,0,0,0" FontWeight="Bold"/>
             <Label Grid.Row="6" Margin="11,0,0,0" FontWeight="Bold" Content="First Time Added"/>
-            <Button Content="Edit Coffee" Grid.Row="7" Grid.ColumnSpan="2"/>
-            <Image Grid.ColumnSpan="2" Margin="10"/>
-            <Label Content="Id" Grid.Row="1" Margin="11,0,0,0" Grid.Column="1"/>
-            <Label Content="Coffee Name" Grid.Row="2" Margin="11,0,0,0" Grid.Column="1"/>
-            <Label Content="Description" Grid.Row="3" Margin="11,0,0,0" Grid.Column="1"/>
-            <Label Content="Price" Grid.Row="4" Margin="11,0,0,0" Grid.Column="1"/>
-            <Label Content="Stock Amount" Grid.Row="5" Margin="11,0,0,0" Grid.Column="1"/>
-            <Label Grid.Row="6" Margin="11,0,0,0" Content="First Time Added" Grid.Column="1"/>
+            <Button Content="Edit Coffee" Grid.Row="7" Grid.ColumnSpan="2" Click="Button_Click"/>
+            <Image x:Name="img_thumb" Grid.ColumnSpan="2" Margin="10"/>
+            
+            <Label x:Name="lab_id" Content="Id" Grid.Row="1" Margin="11,0,0,0" Grid.Column="1"/>
+            <Label x:Name="lab_name" Content="Coffee Name" Grid.Row="2" Margin="11,0,0,0" Grid.Column="1"/>
+            <Label x:Name="lab_desc" Content="Description" Grid.Row="3" Margin="11,0,0,0" Grid.Column="1"/>
+            <Label x:Name="lab_price" Content="Price" Grid.Row="4" Margin="11,0,0,0" Grid.Column="1"/>
+            <Label x:Name="lab_amount" Content="Stock Amount" Grid.Row="5" Margin="11,0,0,0" Grid.Column="1"/>
+            <Label x:Name="lab_time" Grid.Row="6" Margin="11,0,0,0" Content="First Time Added" Grid.Column="1"/>
         </Grid>
 
     </Grid>

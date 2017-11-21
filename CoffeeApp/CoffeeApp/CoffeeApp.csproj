@@ -56,7 +56,7 @@
     </ApplicationDefinition>
     <Compile Include="Model\Coffee.cs" />
     <Compile Include="Utility\CustomCommand.cs" />
-    <Compile Include="VIewModel\MyViewModel.cs" />
+    <Compile Include="ViewModel\MyViewModel.cs" />
     <Page Include="View\CoffeeDetailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

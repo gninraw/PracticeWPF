@@ -58,9 +58,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converter\WonConverter.cs" />
     <Compile Include="Model\Coffee.cs" />
     <Compile Include="Utility\CustomCommand.cs" />
     <Compile Include="ViewModel\MyViewModel.cs" />
+    <Compile Include="View\CoffeeOverviewView1.xaml.cs">
+      <DependentUpon>CoffeeOverviewView1.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\CoffeeDetailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -80,6 +84,10 @@
       <DependentUpon>CoffeeOverviewView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\CoffeeOverviewView1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

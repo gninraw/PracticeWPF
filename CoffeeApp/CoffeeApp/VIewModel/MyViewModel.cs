@@ -3,6 +3,7 @@ using CoffeeApp.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -25,8 +26,12 @@ namespace CoffeeApp.ViewModel
 
         private Coffee _currentcoffee;
         public Coffee CurrentCoffee {
-            get { return _currentcoffee; }
-            set {
+            get
+            {
+                return _currentcoffee;
+            }
+            set
+            {
                 _currentcoffee = value;
                 RaisePropertyChanged("CurrentCoffee");
             }
@@ -62,7 +67,7 @@ namespace CoffeeApp.ViewModel
 
             
 
-            MessageBox.Show("SelectionChange @ ViewModel");
+            //MessageBox.Show("SelectionChange @ ViewModel");
             // 선택된 녀석을 얻는방법?
             //object selected_target = e.AddedItems[0];
 
@@ -80,7 +85,7 @@ namespace CoffeeApp.ViewModel
 
         private void WhenClick(object obj)
         {
-            MessageBox.Show("Button Click @ ViewModel");
+            //MessageBox.Show("Button Click @ ViewModel");
         }
 
         public List<Coffee> MakeCoffeeLIst()
@@ -97,7 +102,6 @@ namespace CoffeeApp.ViewModel
                 c.StockAmout = i * 10;
                 c.FirstAddedTime = DateTime.Now;
                 c.ImageId = i;
-
 
                 string filename = "coffee" + i + ".jpg";
                 Uri uri = new Uri("/CoffeeApp;component/Images/" + filename, UriKind.Relative);

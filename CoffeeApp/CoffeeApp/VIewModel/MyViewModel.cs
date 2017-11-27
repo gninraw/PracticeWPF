@@ -99,6 +99,7 @@ namespace CoffeeApp.ViewModel
                 c.FirstAddedTime = DateTime.Now;
                 c.ImageId = i;
 
+
                 string filename = "coffee" + i + ".jpg";
                 Uri uri = new Uri("/CoffeeApp;component/Images/" + filename, UriKind.Relative);
                 c.Image = new BitmapImage(uri);

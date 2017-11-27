@@ -53,6 +53,7 @@
             <Label Content="Stock Amount" Grid.Row="5" Margin="11,0,0,0" FontWeight="Bold"/>
             <Label Grid.Row="6" Margin="11,0,0,0" FontWeight="Bold" Content="First Time Added"/>
 
+
             <!--<Button Content="Edit Coffee" 
                           Grid.Row="7" 
                           Grid.ColumnSpan="2" 

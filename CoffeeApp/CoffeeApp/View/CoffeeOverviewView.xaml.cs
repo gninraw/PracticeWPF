@@ -33,22 +33,23 @@ namespace CoffeeApp.View
 
         private int index=0;
 
+
+
         public void ViewCoffeeInfo(Coffee c)
         {
             MyViewModel vm = this.DataContext as MyViewModel;
             vm.CurrentCoffee = c;
-         }
 
-        private void MyListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            object selected_target = e.AddedItems[0];
+            //this.lab_name.Content = c.CoffeeName;
+            //this.lab_id.Content = c.CoffeeId;
+            //this.lab_desc.Content = c.Description;
+            //this.lab_amount.Content = c.StockAmout;
+            //this.lab_time.Content = c.FirstAddedTime.ToString();
 
-            if (selected_target is Coffee)
-            {
-                Coffee c = selected_target as Coffee;
-                ViewCoffeeInfo(c);
-            }
-
+            //string filename = "coffee" + c.CoffeeId + ".jpg";
+            //Uri uri = new Uri("/CoffeeApp;component/Images/" + filename, UriKind.Relative);
+            //BitmapImage img_src = new BitmapImage(uri);
+            //this.img_thumb.Source = img_src;
         }
     }
 }

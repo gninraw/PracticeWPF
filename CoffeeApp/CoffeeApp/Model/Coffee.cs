@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace CoffeeApp.Model
 {
@@ -15,5 +16,6 @@ namespace CoffeeApp.Model
         public int StockAmout { get; set; }
         public DateTime FirstAddedTime { get; set; }
         public int ImageId { get; set; }
+        public BitmapImage Image { get; set; }
     }
 }

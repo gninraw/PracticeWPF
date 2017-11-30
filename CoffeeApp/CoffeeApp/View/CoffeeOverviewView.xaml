@@ -11,7 +11,7 @@
     <Window.Resources>
         <converter:WonConverter x:Key="wonconverter" />
     </Window.Resources>
-    <Grid Background="Red">        
+    <Grid Background="Red">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -21,7 +21,7 @@
         </Grid.ColumnDefinitions>
         
         <ListView x:Name="MyListView"  
-                         ItemsSource="{Binding Items}">
+                         ItemsSource="{Binding Repository.Items}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectionChanged">
                     <i:InvokeCommandAction Command="{Binding SelectionChangeCommand}" 
@@ -75,10 +75,10 @@
             <Label Content="Stock Amount" Grid.Row="5" Margin="11,0,0,0" FontWeight="Bold"/>
             <Label Grid.Row="6" Margin="11,0,0,0" FontWeight="Bold" Content="First Time Added"/>
 
-            <!--<Button Content="Edit Coffee" 
+            <Button Content="Edit Coffee" 
                           Grid.Row="7" 
                           Grid.ColumnSpan="2" 
-                          Command="{Binding BtnClickCommand}" />-->
+                          Command="{Binding BtnClickCommand}" />
             
             <Button Content="Edit Coffee" 
                           Grid.Row="7" 
@@ -95,16 +95,15 @@
                 
             </Button>
 
-            <!--<Button Content="Edit Coffee" Grid.Row="7" Grid.ColumnSpan="2" Click="Button_Click" />-->
+            <Button Content="Edit Coffee" Grid.Row="7" Grid.ColumnSpan="2" Click="Button_Click" />
 
-            <Image Source="{Binding CurrentCoffee.Image}" Grid.ColumnSpan="2" Margin="10"/>
-
-            <Label Content="{Binding CurrentCoffee.CoffeeId}" Grid.Row="1" Margin="11,0,0,0" Grid.Column="1"/>
-            <Label Content="{Binding CurrentCoffee.CoffeeName}" Grid.Row="2" Margin="11,0,0,0" Grid.Column="1"/>
-            <Label Content="{Binding CurrentCoffee.Description}" Grid.Row="3" Margin="11,0,0,0" Grid.Column="1"/>
-            <Label Content="{Binding CurrentCoffee.Price}" Grid.Row="4" Margin="11,0,0,0" Grid.Column="1"/>
-            <Label Content="{Binding CurrentCoffee.StockAmout}" Grid.Row="5" Margin="11,0,0,0" Grid.Column="1"/>
-            <Label Content="{Binding CurrentCoffee.FirstAddedTime}"  Grid.Row="6" Margin="11,0,0,0" Grid.Column="1"/>
+            <Image Source="{Binding Repository.CurrentCoffee.Image}" Grid.ColumnSpan="2" Margin="10"/>
+            <Label Content="{Binding Repository.CurrentCoffee.CoffeeId}" Grid.Row="1" Margin="11,0,0,0" Grid.Column="1"/>
+            <Label Content="{Binding Repository.CurrentCoffee.CoffeeName}" Grid.Row="2" Margin="11,0,0,0" Grid.Column="1"/>
+            <Label Content="{Binding Repository.CurrentCoffee.Description}" Grid.Row="3" Margin="11,0,0,0" Grid.Column="1"/>
+            <Label Content="{Binding Repository.CurrentCoffee.Price}" Grid.Row="4" Margin="11,0,0,0" Grid.Column="1"/>
+            <Label Content="{Binding Repository.CurrentCoffee.StockAmount}" Grid.Row="5" Margin="11,0,0,0" Grid.Column="1"/>
+            <Label Content="{Binding Repository.CurrentCoffee.FirstAddedTime}"  Grid.Row="6" Margin="11,0,0,0" Grid.Column="1"/>
         </Grid>
 
     </Grid>

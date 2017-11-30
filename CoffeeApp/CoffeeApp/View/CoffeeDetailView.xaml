@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CoffeeApp"
         mc:Ignorable="d"
+        x:Name="root"
         Title="CoffeeDetailView" Height="439" Width="592.5">
     <Grid Background="#FFBEC6F5">
         <Grid.RowDefinitions>
@@ -23,20 +24,29 @@
             <ColumnDefinition Width="454*"/>
         </Grid.ColumnDefinitions>
         <Label Content="Header" Margin="0" FontWeight="Bold" VerticalContentAlignment="Center"/>
-        <Image Grid.ColumnSpan="2" Margin="10" Grid.Row="2"/>
+        
+        <Image Source="{Binding CurrentCoffee.Image}"  
+                      Margin="10" 
+                      Grid.Row="1" 
+                      Grid.ColumnSpan="2" />
+        <TextBox Text="{Binding CurrentCoffee.CoffeeId}" Grid.Row="2" Margin="11,0,0,0" Grid.Column="1"/>
+        <TextBox Text="{Binding CurrentCoffee.CoffeeName}" Grid.Row="3" Margin="11,0,0,0" Grid.Column="1"/>
+        <TextBox Text="{Binding CurrentCoffee.Description}" Grid.Row="4" Margin="11,0,0,0" Grid.Column="1"/>
+        <TextBox Text="{Binding CurrentCoffee.Price}" Grid.Row="5" Margin="11,0,0,0" Grid.Column="1"/>
+        <TextBox Text="{Binding CurrentCoffee.StockAmount}" Grid.Row="6" Margin="11,0,0,0" Grid.Column="1"/>
+        <TextBox Text="{Binding CurrentCoffee.FirstAddedTime}" Grid.Row="7" Margin="11,0,0,0" Grid.Column="1"/>
+
         <Label Content="Id" Grid.Row="2" Margin="11,0,0,0" FontWeight="Bold"/>
         <Label Content="Coffee Name" Grid.Row="3" Margin="11,0,0,0" FontWeight="Bold"/>
         <Label Content="Description" Grid.Row="4" Margin="11,0,0,0" FontWeight="Bold"/>
         <Label Content="Price" Grid.Row="5" Margin="11,0,0,0" FontWeight="Bold"/>
         <Label Content="Stock Amount" Grid.Row="6" Margin="11,0,0,0" FontWeight="Bold"/>
         <Label Grid.Row="7" Margin="11,0,0,0" FontWeight="Bold" Content="First Time Added"/>
-        <TextBox Text="Id" Grid.Row="2" Margin="11,0,0,0" Grid.Column="1"/>
-        <TextBox Text="Coffee Name" Grid.Row="3" Margin="11,0,0,0" Grid.Column="1"/>
-        <TextBox Text="Description" Grid.Row="4" Margin="11,0,0,0" Grid.Column="1"/>
-        <TextBox Text="Price" Grid.Row="5" Margin="11,0,0,0" Grid.Column="1"/>
-        <TextBox Text="Stock Amount" Grid.Row="6" Margin="11,0,0,0" Grid.Column="1"/>
-        <TextBox Grid.Row="7" Margin="11,0,0,0" Text="First Time Added" Grid.Column="1"/>
-        <Button Content="Save" Grid.Row="8"/>
-        <Button Content="Delete" Grid.Row="8" Grid.Column="1"/>
+        <Button Command="{Binding SaveCommand}"
+                      CommandParameter="{x:Reference root}"
+                Content="Save" Grid.Row="8"/>
+        <Button Command="{Binding DeleteCommand}" 
+                      CommandParameter="{x:Reference root}"
+                      Content="Delete" Grid.Row="8" Grid.Column="1"/>
     </Grid>
 </Window>

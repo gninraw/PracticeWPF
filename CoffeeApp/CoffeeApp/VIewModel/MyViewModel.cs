@@ -1,5 +1,6 @@
 ﻿using CoffeeApp.Model;
 using CoffeeApp.Utility;
+using CoffeeApp.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,44 +12,30 @@ using System.Windows.Media.Imaging;
 
 namespace CoffeeApp.ViewModel
 {
-    public class MyViewModel : INotifyPropertyChanged
+    public class MyViewModel : BindingBase
     {
-        #region Property Changed
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void RaisePropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
-        #endregion
-        
-        public List<Coffee> Items { get; set; }
-
-        private Coffee _currentcoffee;
-        public Coffee CurrentCoffee {
-            get
-            {
-                return _currentcoffee;
-            }
-            set
-            {
-                _currentcoffee = value;
-                RaisePropertyChanged("CurrentCoffee");
-            }
-        }
+        public Repo Repository { get; set; }
 
         public ICommand BtnClickCommand { get; set; }
         public ICommand SelectionChangeCommand { get; set; }
 
+        public Grid ContentGrid { get; private set; }
+
         public MyViewModel()
         {
-            Items = MakeCoffeeLIst();
+            Repository = new Repo();
+
+           
             BtnClickCommand = new CustomCommand(WhenClick, CanClick);
 
             SelectionChangeCommand = 
                 new CustomCommand(SelectionChange, 
                                                         CanSelectionChange);
         }
+
+        
+
+        
 
         private bool CanSelectionChange(object obj)
         {
@@ -62,7 +49,7 @@ namespace CoffeeApp.ViewModel
             object target = view.SelectedItem;
             if(target is Coffee)
             {
-                CurrentCoffee = target as Coffee;
+                Repository.CurrentCoffee = target as Coffee;
             }
 
             
@@ -81,36 +68,21 @@ namespace CoffeeApp.ViewModel
         private bool CanClick(object obj)
         {
             return true;
+            //return false;
         }
 
         private void WhenClick(object obj)
         {
-            //MessageBox.Show("Button Click @ ViewModel");
-        }
-
-        public List<Coffee> MakeCoffeeLIst()
-        {
-            String[] names = { "라떼", "아메리카노", "모카", "에스프레소", "카푸치노" };
-
-            List<Coffee> items = new List<Coffee>();
-            for (int i = 0; i < 5; i++)
+            if(Repository.CurrentCoffee != null)
             {
-                Coffee c = new Coffee();
-                c.CoffeeId = i;
-                c.CoffeeName = names[i];
-                c.Description = i + " Coffee DesCription";
-                c.StockAmout = i * 10;
-                c.FirstAddedTime = DateTime.Now;
-                c.ImageId = i;
-
-                string filename = "coffee" + i + ".jpg";
-                Uri uri = new Uri("/CoffeeApp;component/Images/" + filename, UriKind.Relative);
-                c.Image = new BitmapImage(uri);
-
-                items.Add(c);
+                CoffeeDetailView v = new CoffeeDetailView();
+                PopupViewModel vm = v.DataContext as PopupViewModel;
+                vm.SetCoffee(Repository);
+                v.Show();
+                //MessageBox.Show("Button Click @ ViewModel");
             }
-
-            return items;
         }
+
+        
     }
 }

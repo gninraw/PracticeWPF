@@ -60,8 +60,11 @@
     </ApplicationDefinition>
     <Compile Include="Converter\WonConverter.cs" />
     <Compile Include="Model\Coffee.cs" />
+    <Compile Include="Model\Repo.cs" />
+    <Compile Include="Utility\BindingBase.cs" />
     <Compile Include="Utility\CustomCommand.cs" />
     <Compile Include="ViewModel\MyViewModel.cs" />
+    <Compile Include="ViewModel\PopupViewModel.cs" />
     <Compile Include="View\CoffeeOverviewView1.xaml.cs">
       <DependentUpon>CoffeeOverviewView1.xaml</DependentUpon>
     </Compile>
